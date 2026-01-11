@@ -1,0 +1,9 @@
+*.py[cod]
+venv/
+.~*
+.idea/
+.vim/
+.vscode/
+.mypy_cache/
+# Python virtual environment
+.venv/
