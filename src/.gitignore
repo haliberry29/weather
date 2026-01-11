@@ -1,0 +1,7 @@
+src/
+  app/
+    main.py
+    db.py
+    models.py
+    schemas.py
+    crud.py

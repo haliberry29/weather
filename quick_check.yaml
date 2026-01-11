@@ -1,0 +1,10 @@
+
+---
+
+## Quick last check (so you know it’s perfect)
+After starting uvicorn, these should work:
+
+- `http://127.0.0.1:8000/api/weather?page=1&page_size=3`
+- `http://127.0.0.1:8000/api/weather/stats?page=1&page_size=3`
+
+If you want, paste your current `models.py` and I’ll make sure the `UniqueConstraint` + indexes match exactly what Postgres has (and fix any mismatch cleanly).

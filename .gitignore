@@ -1,9 +1,33 @@
-*.py[cod]
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# Virtual environment
+.venv/
 venv/
-.~*
-.idea/
-.vim/
+
+# OS / Editor
+.DS_Store
 .vscode/
+<<<<<<< HEAD
 .mypy_cache/
 # Python virtual environment
 .venv/
+=======
+
+# Logs
+*.log
+
+# Docker
+*.pid
+
+# Database / secrets
+*.sqlite
+
+# Local DB artifacts
+weather.db
+*.db
+

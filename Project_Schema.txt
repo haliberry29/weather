@@ -1,0 +1,26 @@
+erDiagram
+
+    INGESTION_STATE {
+        string key PK
+        boolean value
+    }
+
+    WEATHER {
+        int id PK
+        string station_id
+        date date
+        float max_temp_c
+        float min_temp_c
+        float precip_cm
+    }
+
+    WEATHER_STATS {
+        int id PK
+        string station_id
+        int year
+        float avg_max_temp_c
+        float avg_min_temp_c
+        float total_precip_cm
+    }
+
+    WEATHER ||--o{ WEATHER_STATS : "aggregated into"
