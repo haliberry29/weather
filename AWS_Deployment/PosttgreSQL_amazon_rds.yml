@@ -1,0 +1,67 @@
+
+---
+
+## Prerequisites
+
+- AWS account
+- EC2 instance (Ubuntu 22.04)
+- Docker and Docker Compose installed on EC2
+- PostgreSQL database (Amazon RDS recommended)
+
+---
+
+## Step 1 — Launch EC2 Instance
+
+1. Go to AWS Console → EC2 → Launch Instance
+2. AMI: Ubuntu 22.04 LTS
+3. Instance type: t2.micro or t3.micro
+4. Security Group:
+   - Allow SSH (22) from your IP
+   - Allow API access (8000) from 0.0.0.0/0
+5. Download the `weather-key.pem` key
+
+---
+
+## Step 2 — SSH into EC2
+
+```bash
+ssh -i weather-key.pem ubuntu@<http://18.208.245.176/>
+
+## Step 3 - Installations
+sudo apt-get update -y
+sudo apt-get install -y docker.io docker-compose-plugin
+sudo usermod -aG docker ubuntu
+newgrp docker
+
+## Step 4 — Upload the Project
+clone from git
+
+git clone https://github.com/haliberry29/weather.git
+cd weather
+
+
+##Step 5 — Configure Environment Variables
+
+Create a .env file (DO NOT commit this file):
+
+DATABASE_URL=postgresql+psycopg2://user:password@host:5432/weather
+LOG_LEVEL=INFO
+
+LOG_LEVEL=INFO
+
+## Step 6 — Run with Docker Compose
+docker compose up --build -d
+docker compose logs -f
+
+## Step 7 — Verify Deployment
+
+Health check:
+http://18.208.245.176/:8000/health
+
+Swagger docs:
+http://18.208.245.176/:8000/docs
+
+
+
+
+

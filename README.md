@@ -1,4 +1,4 @@
-Weather Data API
+Weather Data API (link to aws deployed challenge: http://18.208.245.176:8000/docs)
 
 A production-quality FastAPI + PostgreSQL service for ingesting, aggregating, and serving historical weather data.
 This project implements a safe, idempotent ingestion pipeline, yearly weather statistics, and paginated REST APIs, with a one-command local runner and a clear AWS deployment path.
@@ -33,11 +33,20 @@ Developer-Friendly
 
 One-command local run
 
+## AWS Deployment
+
+This project can be deployed to AWS using **EC2 + Docker Compose**.
+
+Step-by-step instructions are available here:
+
+ [AWS Deployment Guide](aws/README.md)
+
+
 Swagger/OpenAPI documentation
 
 Clean project structure
 
-🧱 Architecture Overview
+ Architecture Overview
 wx_data/                # Raw NOAA weather station files
 │
 ├── ingest_weather.py   # Ingests raw data → weather table
@@ -56,7 +65,7 @@ weather (daily observations)
 
 weather_stats (yearly aggregates)
 
-🗄️ Database Schema
+ Database Schema
 weather
 
 station_id (string)
@@ -93,7 +102,7 @@ Unique: (station_id, year)
 
 Index: (station_id, year)
 
-⚙️ Setup & Run Locally
+ Setup & Run Locally
 Prerequisites
 
 Python 3.10+
@@ -104,22 +113,22 @@ Git
 
 Windows PowerShell (or equivalent shell)
 
-1️⃣ Clone the repository
+1️. Clone the repository
 git clone https://github.com/haliberry29/weather.git
 cd weather
 
-2️⃣ Create and activate virtual environment
+2️. Create and activate virtual environment
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
-3️⃣ Create PostgreSQL database
+3️. Create PostgreSQL database
 CREATE DATABASE weather;
 
-4️⃣ Set database connection
+4️. Set database connection
 $env:DATABASE_URL="postgresql+psycopg2://postgres:<password>@localhost:5432/weather"
 
-5️⃣ Run everything (recommended)
+5️. Run everything (recommended)
 .\run.ps1
 
 
@@ -131,7 +140,7 @@ Compute yearly statistics
 
 Start the FastAPI server
 
-🌐 API Documentation
+ API Documentation
 
 Once running, open:
 
@@ -164,7 +173,7 @@ Sample Response
   ]
 }
 
-🔁 Ingestion Behavior (Important)
+ Ingestion Behavior (Important)
 
 Ingestion is idempotent
 
@@ -177,3 +186,12 @@ $env:FORCE_INGEST="1"
 
 
 This ensures fast re-runs and safe production behavior.
+
+
+## AWS Deployment
+
+This project can be deployed to AWS using **EC2 + Docker Compose**.
+
+Step-by-step instructions are available here:
+
+[AWS Deployment Guide](aws/README.md)
