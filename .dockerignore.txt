@@ -1,0 +1,16 @@
+# Python virtual environment
+.venv/
+
+# Git
+.git/
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local DB artifacts
+*.db
+
+# Raw data (use S3 in AWS)
+wx_data/
