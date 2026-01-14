@@ -1,4 +1,4 @@
-Weather Data API (link to aws deployed challenge: http://18.208.245.176:8000/docs)
+Weather Data API (link to aws deployed challenge: (http://18.208.245.176/docs#)
 
 A production-quality FastAPI + PostgreSQL service for ingesting, aggregating, and serving historical weather data.
 This project implements a safe, idempotent ingestion pipeline, yearly weather statistics, and paginated REST APIs, with a one-command local runner and a clear AWS deployment path.
